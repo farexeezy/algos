@@ -1,0 +1,64 @@
+class Avtovaz:
+  def __init__(self, color: str = 'Gray Blue', power: int = 69, benz: float = 40, rashod: float = 9, benz_shas: float = 10, rashod_km: float = 0.09):
+    self.color = color
+    self.power = power
+    self.benz = benz
+    self.rashod = rashod
+    self.benz_shas = benz_shas
+    self.rashod_km = rashod_km
+  def get_color(self): # цвет чичас
+    return self.color
+  def get_power(self): # мощность
+    return self.power
+  def get_benz(self): # фулл бак
+    return self.benz
+  def get_rashod(self): # расход на 100 брат
+    return self.rashod
+  def get_rashod_km(self): # расход на 1 брат
+    return self.rashod_km
+  def set_color(self, color): # цвет поменять
+    self.color = color
+    return self.color
+  def set_benz (self, benz): # изменить максимум топлива получается
+    self.benz = benz
+    return self.benz
+  def get_benz_shas (self): # бензин чичас 1
+    return self.benz_shas
+  def get_benzin (self): # бензин чичас 2
+    return self.benz_shas
+  def set_benz_shas (self, benz_shas): # установить количество бензина чичас получается
+    self.benz_shas = benz_shas
+    return self.benz_shas
+  def get_zapravka (self): # скок влезет
+    return self.benz - self.benz_shas
+  def zapravka (self, benzin): # вкинуться (бенза в бак)
+    if self.benz >= self.benz_shas:
+      if benzin > c.get_zapravka():
+        print ('Столько не залить')
+      else:
+        self.benz_shas += benzin
+        return self.benz_shas
+    else:
+       print ('Тебе хватит')
+  def probeg (self): # на скок хватит
+    return self.benz_shas / self.rashod_km
+  
+c = Avtovaz(color = 'Gray Blue', power = 69, benz = 40, rashod = 9, benz_shas = 10, rashod_km = 0.09)
+print ('Цвет:', c.get_color())
+print ('Мощность:', c.get_power())
+print ('Вместимость бака:', c.get_benz())
+print ('Расход на 100 км:', c.get_rashod())
+print ('Можно проехать:', c.probeg())
+print ('Стоимость: от деда досталась')
+
+print ()
+
+c.set_color('Black')
+c.set_benz(40)
+print (f'Перекрашена в: {c.get_color()} цвет' )
+print (f'Максимальная вместимость бака: {c.get_benz()} литров')
+print (f'В баке щас: {c.get_benz_shas()} литров')
+print (f'Можно залить на: {c.get_zapravka()} литров')
+c.zapravka(5)
+print (f'Можно проехать: {c.probeg()}')
+
